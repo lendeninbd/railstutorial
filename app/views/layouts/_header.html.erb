@@ -6,6 +6,10 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
+      <%= form_tag posts_find_posts_path, method: :get do %>
+        <input type="text" name="search_term" placeholder="Search">
+        <%= submit_tag 'Go', class: 'btn-u' %>
+      <% end %>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
           <a class="nav-link" href="#">Home

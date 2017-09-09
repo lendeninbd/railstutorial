@@ -61,6 +61,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def find_posts
+    if params[:search_term].present?
+      @posts = Post.where("lower(title) LIKE ?", "%#{params[:search_term].downcase}%")
+    else
+      @posts = Post.all
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
